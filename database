@@ -1,0 +1,314 @@
+-- MySQL Administrator dump 1.4
+--
+-- ------------------------------------------------------
+-- Server version	5.0.17-nt
+
+
+/*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
+/*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
+/*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
+/*!40101 SET NAMES utf8 */;
+
+/*!40014 SET @OLD_UNIQUE_CHECKS=@@UNIQUE_CHECKS, UNIQUE_CHECKS=0 */;
+/*!40014 SET @OLD_FOREIGN_KEY_CHECKS=@@FOREIGN_KEY_CHECKS, FOREIGN_KEY_CHECKS=0 */;
+/*!40101 SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='NO_AUTO_VALUE_ON_ZERO' */;
+
+
+--
+-- Create schema auctiondatabase
+--
+
+CREATE DATABASE /*!32312 IF NOT EXISTS*/ auctiondatabase;
+USE auctiondatabase;
+
+--
+-- Table structure for table `auctiondatabase`.`bid`
+--
+
+DROP TABLE IF EXISTS `bid`;
+CREATE TABLE `bid` (
+  `srno` int(10) unsigned default NULL,
+  `date` text,
+  `buyer_name` varchar(45) default NULL,
+  `buyer_mob` bigint(20) unsigned default NULL,
+  `buyer_mail` varchar(45) default NULL,
+  `buyer_price` int(10) unsigned default NULL,
+  `product_id` int(10) unsigned default NULL,
+  `product_name` varchar(45) default NULL,
+  `category` varchar(45) default NULL,
+  `seller_name` varchar(45) default NULL,
+  `seller_mob` bigint(20) unsigned default NULL,
+  `seller_price` int(10) unsigned default NULL,
+  `images` text
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `auctiondatabase`.`bid`
+--
+
+/*!40000 ALTER TABLE `bid` DISABLE KEYS */;
+INSERT INTO `bid` (`srno`,`date`,`buyer_name`,`buyer_mob`,`buyer_mail`,`buyer_price`,`product_id`,`product_name`,`category`,`seller_name`,`seller_mob`,`seller_price`,`images`) VALUES 
+ (1,'2024-03-12','sai kambire',9922813956,'saikambire@gmail.com',37000,4,'sofa','furniture','sayali gurav',2198765432,35000,'images/fur1.jpg'),
+ (2,'2024-03-07','swara borate',9322418563,'swaraborate2003@gmail.com',50000,2,'camera','electronic Product','ashwini barkade',8830720293,45000,'images/camera.jpg'),
+ (3,'2024-03-04','amruta desai',7654439832,'desaiamruta@gmail.com',81000,7,'car','Bikes','sairaj patil',7098654324,75000,'images/car.jpg'),
+ (4,'2024-03-05','manas dhas',9913609660,'manas2345@gmail.com',35000,6,'table','furniture','sakshi shedage',6547829827,34000,'images/i1.jpg'),
+ (5,'2024-03-15','komal kambire',7083873659,'kambirekomal@gmail.com',75000,9,'tab','electronic Product','shlok patil',9123456789,70000,'images/tab.png'),
+ (6,'2024-03-17','sonam more',7719985215,'sonam11@gmail.com',40000,4,'sofa','furniture','sayali gurav',2198765432,35000,'images/fur1.jpg'),
+ (7,'2024-03-15','nikita  borate',7972575342,'nikita2004@gmail.com',52000,3,'bullet','Bikes','purva dubal',9922765431,50000,'images/bike.jpg');
+INSERT INTO `bid` (`srno`,`date`,`buyer_name`,`buyer_mob`,`buyer_mail`,`buyer_price`,`product_id`,`product_name`,`category`,`seller_name`,`seller_mob`,`seller_price`,`images`) VALUES 
+ (8,'2024-03-12','seema mane',8976543276,'seemamane@gmail.com',30000,8,'printer','electronic Product','shubham borate',9987654343,25000,'images/printer.jpg'),
+ (9,'2024-03-13','nikita udugade',9359082029,'udugadenikita@gmail.com',42000,10,'scanner','electronic Product','rushi mane',7954678543,35000,'images/scanner.jpg'),
+ (10,'2024-03-16','komal kambire',7083873659,'kambirekomal@gmail.com',62000,1,'ride bike','Bikes','prajkata ingvale',7498966453,60000,'images/bike.jpeg'),
+ (12,'2024-03-15','komal kambire',7083873659,'kambirekomal@gmail.com',55000,3,'bullet','Bikes','purva dubal',9922765431,50000,'images/bike.jpg'),
+ (14,'2024-03-10','seema mane',8976543276,'seemamane@gmail.com',70000,1,'ride bike','Bikes','prajkata ingvale',7498966453,60000,'images/bike.jpeg'),
+ (15,'2024-04-04','swara borate',9322418563,'swaraborate2003@gmail.com',30000,13,'hutch','furniture','priyanka babar',7894543230,25000,'images/hutch.jfif'),
+ (16,'2024-04-04','swara borate',9322418563,'swaraborate2003@gmail.com',6000,12,'chair','furniture','priyanka babar',7894543230,5000,'images/chair.jpeg');
+/*!40000 ALTER TABLE `bid` ENABLE KEYS */;
+
+
+--
+-- Table structure for table `auctiondatabase`.`billing`
+--
+
+DROP TABLE IF EXISTS `billing`;
+CREATE TABLE `billing` (
+  `srno` int(10) unsigned default NULL,
+  `receiptno` int(10) unsigned default NULL,
+  `buyername` varchar(45) default NULL,
+  `buyermob` bigint(20) unsigned default NULL,
+  `sellername` varchar(45) default NULL,
+  `sellermob` bigint(20) unsigned default NULL,
+  `price` int(10) unsigned default NULL,
+  `productnm` varchar(45) default NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `auctiondatabase`.`billing`
+--
+
+/*!40000 ALTER TABLE `billing` DISABLE KEYS */;
+INSERT INTO `billing` (`srno`,`receiptno`,`buyername`,`buyermob`,`sellername`,`sellermob`,`price`,`productnm`) VALUES 
+ (12,1,'komal kambire',7083873659,'purva dubal',9922765431,55000,'bullet'),
+ (14,2,'seema mane',8976543276,'prajkata ingvale',7498966453,70000,'ride bike'),
+ (4,3,'manas dhas',9913609660,'sakshi shedage',6547829827,35000,'table');
+/*!40000 ALTER TABLE `billing` ENABLE KEYS */;
+
+
+--
+-- Table structure for table `auctiondatabase`.`buyer_bidding`
+--
+
+DROP TABLE IF EXISTS `buyer_bidding`;
+CREATE TABLE `buyer_bidding` (
+  `buyer_name` varchar(45) default NULL,
+  `buyer_mob_no` bigint(20) unsigned default NULL,
+  `buyer_email` varchar(45) default NULL,
+  `product_id` int(11) default NULL,
+  `category` varchar(45) default NULL,
+  `product_name` varchar(45) default NULL,
+  `seller_name` varchar(45) default NULL,
+  `seller_mobno` bigint(20) unsigned default NULL,
+  `seller_price` int(10) unsigned default NULL,
+  `image` text,
+  `srno` int(10) unsigned default NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `auctiondatabase`.`buyer_bidding`
+--
+
+/*!40000 ALTER TABLE `buyer_bidding` DISABLE KEYS */;
+INSERT INTO `buyer_bidding` (`buyer_name`,`buyer_mob_no`,`buyer_email`,`product_id`,`category`,`product_name`,`seller_name`,`seller_mobno`,`seller_price`,`image`,`srno`) VALUES 
+ ('sai kambire',9922813956,'saikambire@gmail.com',4,'furniture','sofa','sayali gurav',2198765432,35000,'images/fur1.jpg',1),
+ ('swara borate',9322418563,'swaraborate2003@gmail.com',2,'electronic Product','camera','ashwini barkade',8830720293,45000,'images/camera.jpg',2),
+ ('amruta desai',7654439832,'desaiamruta@gmail.com',7,'Bikes','car','sairaj patil',7098654324,75000,'images/car.jpg',3),
+ ('manas dhas',9913609660,'manas2345@gmail.com',6,'furniture','table','sakshi shedage',6547829827,34000,'images/i1.jpg',4),
+ ('komal kambire',7083873659,'kambirekomal@gmail.com',9,'electronic Product','tab','shlok patil',9123456789,70000,'images/tab.png',5),
+ ('sonam more',7719985215,'sonam11@gmail.com',4,'furniture','sofa','sayali gurav',2198765432,35000,'images/fur1.jpg',6),
+ ('seema mane',8976543276,'seemamane@gmail.com',8,'electronic Product','printer','shubham borate',9987654343,25000,'images/printer.jpg',8),
+ ('nikita udugade',9359082029,'udugadenikita@gmail.com',10,'electronic Product','scanner','rushi mane',7954678543,35000,'images/scanner.jpg',9);
+INSERT INTO `buyer_bidding` (`buyer_name`,`buyer_mob_no`,`buyer_email`,`product_id`,`category`,`product_name`,`seller_name`,`seller_mobno`,`seller_price`,`image`,`srno`) VALUES 
+ ('komal kambire',7083873659,'kambirekomal@gmail.com',1,'Bikes','ride bike','prajkata ingvale',7498966453,60000,'images/bike.jpeg',10),
+ ('swara borate',9322418563,'swaraborate2003@gmail.com',10,'electronic Product','scanner','rushi mane',7954678543,35000,'images/scanner.jpg',11),
+ ('nikita  borate',7972575342,'nikita2004@gmail.com',3,'Bikes','bullet','purva dubal',9922765431,50000,'images/bike.jpg',11),
+ ('komal kambire',7083873659,'kambirekomal@gmail.com',3,'Bikes','bullet','purva dubal',9922765431,50000,'images/bike.jpg',12),
+ ('seema mane',8976543276,'seemamane@gmail.com',1,'Bikes','ride bike','prajkata ingvale',7498966453,60000,'images/bike.jpeg',13),
+ ('komal kambire',7083873659,'kambirekomal@gmail.com',12,'furniture','chair','priyanka babar',7894543230,5000,'images/chair.jpeg',14),
+ ('swara borate',9322418563,'swaraborate2003@gmail.com',13,'furniture','hutch','priyanka babar',7894543230,25000,'images/hutch.jfif',15),
+ ('swara borate',9322418563,'swaraborate2003@gmail.com',12,'furniture','chair','priyanka babar',7894543230,5000,'images/chair.jpeg',16);
+/*!40000 ALTER TABLE `buyer_bidding` ENABLE KEYS */;
+
+
+--
+-- Table structure for table `auctiondatabase`.`buyerregistration`
+--
+
+DROP TABLE IF EXISTS `buyerregistration`;
+CREATE TABLE `buyerregistration` (
+  `buyername` varchar(45) default NULL,
+  `buyeraddress` varchar(45) default NULL,
+  `buyermobileno` bigint(20) unsigned default NULL,
+  `buyeremailid` varchar(45) default NULL,
+  `buyerusername` varchar(45) default NULL,
+  `buyerpassword` varchar(45) default NULL,
+  `id` int(10) unsigned default NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `auctiondatabase`.`buyerregistration`
+--
+
+/*!40000 ALTER TABLE `buyerregistration` DISABLE KEYS */;
+INSERT INTO `buyerregistration` (`buyername`,`buyeraddress`,`buyermobileno`,`buyeremailid`,`buyerusername`,`buyerpassword`,`id`) VALUES 
+ ('sai kambire','satara',9922813956,'saikambire@gmail.com','sai','sai789',1),
+ ('swara borate','karad',9322418563,'swaraborate2003@gmail.com','swara','2001',2),
+ ('amruta desai','sangli',7654439832,'desaiamruta@gmail.com','amruta','123',3),
+ ('manas dhas','vai',9913609660,'manas2345@gmail.com','manas','1111',4),
+ ('komal kambire','kambirwadi',7083873659,'kambirekomal@gmail.com','komal','5679',5),
+ ('sonam more','masur',7719985215,'sonam11@gmail.com','sonu','12345',6),
+ ('nikita  borate','shirvade',7972575342,'nikita2004@gmail.com','niki','12',7),
+ ('seema mane','karad',8976543276,'seemamane@gmail.com','seema','1122',8),
+ ('nikita udugade','patan',9359082029,'udugadenikita@gmail.com','niku','niku',9),
+ ('sakshi jagadale','umbraj',9987654325,'sakshijagadale@gmail.com','sakshi','9999',10);
+/*!40000 ALTER TABLE `buyerregistration` ENABLE KEYS */;
+
+
+--
+-- Table structure for table `auctiondatabase`.`feedback`
+--
+
+DROP TABLE IF EXISTS `feedback`;
+CREATE TABLE `feedback` (
+  `name` varchar(45) default NULL,
+  `mob` bigint(20) unsigned default NULL,
+  `comment` text,
+  `sr` int(10) unsigned default NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `auctiondatabase`.`feedback`
+--
+
+/*!40000 ALTER TABLE `feedback` DISABLE KEYS */;
+INSERT INTO `feedback` (`name`,`mob`,`comment`,`sr`) VALUES 
+ ('komal',7083873659,'very useful websites',1),
+ ('swara borate',9322418563,'nice for buying products',2),
+ ('mona kamat',456787877,'good products',3),
+ ('prajkata ingvale',987855654,'good websites for selling the products',4),
+ ('manas dhas',9913609660,'very nice product',5),
+ ('seema mane',8976543276,'best quality products',6),
+ ('nikita udugade',9359082029,'well organized product category',7),
+ ('sakshi jagadale',9987654325,'thank you for this auction.very usefull.',8);
+/*!40000 ALTER TABLE `feedback` ENABLE KEYS */;
+
+
+--
+-- Table structure for table `auctiondatabase`.`seller_addproduct`
+--
+
+DROP TABLE IF EXISTS `seller_addproduct`;
+CREATE TABLE `seller_addproduct` (
+  `id` int(10) unsigned default NULL,
+  `category` varchar(45) default NULL,
+  `product_name` varchar(45) default NULL,
+  `image` text,
+  `expected_price` int(10) unsigned default NULL,
+  `valid_date` text,
+  `valid_uptodate` text,
+  `sellerusername` varchar(45) default NULL,
+  `sellermobileno` bigint(20) unsigned default NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `auctiondatabase`.`seller_addproduct`
+--
+
+/*!40000 ALTER TABLE `seller_addproduct` DISABLE KEYS */;
+INSERT INTO `seller_addproduct` (`id`,`category`,`product_name`,`image`,`expected_price`,`valid_date`,`valid_uptodate`,`sellerusername`,`sellermobileno`) VALUES 
+ (1,'Bikes','ride bike','bike.jpeg',60000,'2024-03-09','2024-03-17','prajkata ingvale',7498966453),
+ (2,'electronic Product','camera','camera.jpg',45000,'2024-03-05','2024-03-20','ashwini barkade',8830720293),
+ (3,'Bikes','bullet','bike.jpg',50000,'2024-03-10','2024-03-23','purva dubal',9922765431),
+ (4,'furniture','sofa','fur1.jpg',35000,'2024-03-11','2024-03-21','sayali gurav',2198765432),
+ (5,'electronic Product','laptop','lap.jpg',56000,'2024-03-17','2024-03-25','vaibhav kambire',9719985215),
+ (6,'furniture','table','i1.jpg',34000,'2024-03-05','2024-03-22','sakshi shedage',6547829827),
+ (7,'Bikes','car','car.jpg',75000,'2024-03-03','2024-03-18','sairaj patil',7098654324),
+ (8,'electronic Product','printer','printer.jpg',25000,'2024-03-08','2024-03-22','shubham borate',9987654343),
+ (9,'electronic Product','tab','tab.png',70000,'2024-03-12','2024-03-20','shlok patil',9123456789),
+ (10,'electronic Product','scanner','scanner.jpg',35000,'2024-03-09','2024-03-27','rushi mane',7954678543);
+INSERT INTO `seller_addproduct` (`id`,`category`,`product_name`,`image`,`expected_price`,`valid_date`,`valid_uptodate`,`sellerusername`,`sellermobileno`) VALUES 
+ (11,'electronic Product','iphone','phone.jpg',56000,'2024-03-23','2024-04-04','ashwini barkade',8830720293),
+ (12,'furniture','chair','chair.jpeg',5000,'2024-04-02','2024-04-10','priyanka babar',7894543230),
+ (13,'furniture','hutch','hutch.jfif',25000,'2024-04-04','2024-04-08','priyanka babar',7894543230);
+/*!40000 ALTER TABLE `seller_addproduct` ENABLE KEYS */;
+
+
+--
+-- Table structure for table `auctiondatabase`.`sellerfinalbid`
+--
+
+DROP TABLE IF EXISTS `sellerfinalbid`;
+CREATE TABLE `sellerfinalbid` (
+  `buyername` varchar(45) default NULL,
+  `buyermobno` bigint(20) unsigned default NULL,
+  `finalbidprice` int(10) unsigned default NULL,
+  `productname` varchar(45) default NULL,
+  `sellername` varchar(45) default NULL,
+  `sellermobno` bigint(20) unsigned default NULL,
+  `srno` int(10) unsigned default NULL,
+  `msg` varchar(45) default NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `auctiondatabase`.`sellerfinalbid`
+--
+
+/*!40000 ALTER TABLE `sellerfinalbid` DISABLE KEYS */;
+INSERT INTO `sellerfinalbid` (`buyername`,`buyermobno`,`finalbidprice`,`productname`,`sellername`,`sellermobno`,`srno`,`msg`) VALUES 
+ ('komal kambire',7083873659,55000,'bullet','purva dubal',9922765431,12,'Your Bid is successful'),
+ ('seema mane',8976543276,70000,'ride bike','prajkata ingvale',7498966453,14,'Your Bid is successful'),
+ ('manas dhas',9913609660,35000,'table','sakshi shedage',6547829827,4,'Your Bid is successful'),
+ ('seema mane',8976543276,70000,'ride bike','prajkata ingvale',7498966453,14,'Your Bid is successful');
+/*!40000 ALTER TABLE `sellerfinalbid` ENABLE KEYS */;
+
+
+--
+-- Table structure for table `auctiondatabase`.`sellerregistration`
+--
+
+DROP TABLE IF EXISTS `sellerregistration`;
+CREATE TABLE `sellerregistration` (
+  `sellername` varchar(45) default NULL,
+  `selleraddress` varchar(45) default NULL,
+  `sellermobileno` bigint(20) unsigned default NULL,
+  `selleremailid` varchar(45) default NULL,
+  `sellerusername` varchar(45) default NULL,
+  `sellerpassword` varchar(45) default NULL,
+  `id` int(10) unsigned default NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `auctiondatabase`.`sellerregistration`
+--
+
+/*!40000 ALTER TABLE `sellerregistration` DISABLE KEYS */;
+INSERT INTO `sellerregistration` (`sellername`,`selleraddress`,`sellermobileno`,`selleremailid`,`sellerusername`,`sellerpassword`,`id`) VALUES 
+ ('prajkata ingvale','riswad',7498966453,'praju@gmail.com','praju','2003',1),
+ ('ashwini barkade','malawadi',8830720293,'ashu@gmail.com','ashu','2002',2),
+ ('purva dubal','mhopre',9922765431,'dubal@gmail.com','purva','987',3),
+ ('sayali gurav','divshi',2198765432,'sayligurav@gmail.com','sayo','123',4),
+ ('vaibhav kambire','mumbai',9719985215,'vaibhav@gmail.com','vaibhav','1999',5),
+ ('sakshi shedage','hunbarwadi',6547829827,'sakshishedage@gmail.com','sakshi','2004',6),
+ ('sairaj patil','pune',7098654324,'sairaj12@gmail.com','sam','1234',7),
+ ('shubham borate','amaravati',9987654343,'shubhamshankarborate@gmail.com','shubham','borate',8),
+ ('shlok patil','ghansoli',9123456789,'patilshlok@gmail.com','shlok','2017',9),
+ ('rushi mane','raigad',7954678543,'rushi@gmail.com','rushi','9000',10),
+ ('priyanka babar','keral',7894543230,'priya2@gmail.com','priya','1111',11);
+/*!40000 ALTER TABLE `sellerregistration` ENABLE KEYS */;
+
+/*!40101 SET SQL_MODE=@OLD_SQL_MODE */;
+/*!40014 SET FOREIGN_KEY_CHECKS=@OLD_FOREIGN_KEY_CHECKS */;
+/*!40014 SET UNIQUE_CHECKS=@OLD_UNIQUE_CHECKS */;
+/*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
+/*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
+/*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
+/*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
